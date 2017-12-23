@@ -1,0 +1,25 @@
+package luuhieuServer;
+
+import com.smartfoxserver.v2.protocol.binary.BinaryIoHandler;
+
+import Extension.Subject;
+import Pattern.BinaryObserver;
+import Pattern.HexaObserver;
+import Pattern.OctalObserver;
+
+public class MainServer {
+
+	public static void main(String[] args) {
+		Subject sub  = new Subject();
+		HexaObserver hex =  new HexaObserver(sub);
+		new OctalObserver(sub);
+		new BinaryObserver(sub);
+		
+		System.out.print(" First : " + "\n");
+		sub.setState(15);
+		System.out.print("\n" +" Second : "+ "\n");
+		sub.notify(hex);
+	
+	}
+
+}

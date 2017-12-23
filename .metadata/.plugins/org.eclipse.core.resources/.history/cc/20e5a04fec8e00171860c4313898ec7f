@@ -1,0 +1,537 @@
+package Extension;
+
+import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
+
+import com.smartfoxserver.bitswarm.sessions.ISession;
+import com.smartfoxserver.v2.SmartFoxServer;
+import com.smartfoxserver.v2.api.CreateRoomSettings;
+import com.smartfoxserver.v2.api.CreateRoomSettings.RoomExtensionSettings;
+import com.smartfoxserver.v2.api.SFSMMOApi;
+import com.smartfoxserver.v2.buddylist.BuddyProperties;
+import com.smartfoxserver.v2.controllers.system.CreateRoom;
+import com.smartfoxserver.v2.core.ISFSEvent;
+import com.smartfoxserver.v2.core.SFSEventParam;
+import com.smartfoxserver.v2.core.SFSEventType;
+import com.smartfoxserver.v2.entities.SFSRoomRemoveMode;
+import com.smartfoxserver.v2.entities.User;
+import com.smartfoxserver.v2.entities.Zone;
+import com.smartfoxserver.v2.entities.data.ISFSArray;
+import com.smartfoxserver.v2.entities.data.ISFSObject;
+import com.smartfoxserver.v2.entities.data.SFSObject;
+import com.smartfoxserver.v2.entities.variables.UserVariable;
+import com.smartfoxserver.v2.exceptions.SFSCreateRoomException;
+import com.smartfoxserver.v2.exceptions.SFSException;
+import com.smartfoxserver.v2.exceptions.SFSVariableException;
+import com.smartfoxserver.v2.extensions.BaseServerEventHandler;
+import com.smartfoxserver.v2.extensions.SFSExtension;
+import com.smartfoxserver.v2.mmo.BaseMMOItem;
+import com.smartfoxserver.v2.mmo.CreateMMORoomSettings;
+import com.smartfoxserver.v2.mmo.IMMOItemVariable;
+import com.smartfoxserver.v2.mmo.MMOItem;
+import com.smartfoxserver.v2.mmo.MMOItemVariable;
+import com.smartfoxserver.v2.mmo.MMORoom;
+import com.smartfoxserver.v2.util.Country;
+import com.smartfoxserver.v2.util.IDisconnectionReason;
+
+import luuhieuServer.DataModel;
+import luuhieuServer.DragonArmor;
+import luuhieuServer.DragonSword;
+import sfs2x.client.SmartFox;
+import sfs2x.client.entities.Room;
+import sfs2x.client.entities.data.Vec3D;
+import sfs2x.client.requests.CreateRoomRequest;
+import sfs2x.client.requests.RoomExtension;
+import sfs2x.client.requests.RoomSettings;
+
+public class ScrollerExtension  extends SFSExtension {
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		DragonSword dra = new DragonSword();
+		dra.init();
+		DragonArmor draA = new DragonArmor();
+		draA.init();
+		DataModel dataM = new DataModel<>(dra,draA);
+		SmartFoxServer.getInstance().getAPIManager().getSFSApi().sendExtensionResponse(, dataM, arg2, Sunna, true);
+	}
+
+}
+public class AllUser implements User
+{
+
+	@Override
+	public void addCreatedRoom(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addJoinedRoom(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPersistentRoomVarReference(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean containsProperty(Object arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean containsVariable(String arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void disconnect(IDisconnectionReason arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getBadWordsWarnings() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public BuddyProperties getBuddyProperties() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Country getCountry() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<com.smartfoxserver.v2.entities.Room> getCreatedRooms() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MMORoom getCurrentMMORoom() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDump() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getFloodWarnings() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getIpAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<com.smartfoxserver.v2.entities.Room> getJoinedRooms() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public com.smartfoxserver.v2.entities.Room getLastJoinedRoom() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BaseMMOItem> getLastMMOItemsList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getLastProxyList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getLastRequestTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long getLoginTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getMaxAllowedVariables() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getOwnedRoomsCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Set<Integer> getPersistentRoomVarReferences() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getPlayerId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getPlayerId(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Map<com.smartfoxserver.v2.entities.Room, Integer> getPlayerIds() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public short getPrivilegeId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ConcurrentMap<Object, Object> getProperties() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getProperty(Object arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getReconnectionSeconds() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ISession getSession() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getSubscribedGroups() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ISFSArray getUserVariablesData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserVariable getVariable(String arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserVariable> getVariables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getVariablesCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Zone getZone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isBeingKicked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isConnected() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isJoinedInRoom(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isJoining() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isLocal() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isNpc() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isPlayer() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isPlayer(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSpectator() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSpectator(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSubscribedToGroup(String arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSuperUser() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void removeCreatedRoom(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeJoinedRoom(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeProperty(Object arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeVariable(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setBadWordsWarnings(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setBeingKicked(boolean arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setConnected(boolean arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setFloodWarnings(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setJoining(boolean arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLastLoginTime(long arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLastMMOItemsList(List<BaseMMOItem> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLastProxyList(List<User> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLastRequestTime(long arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setMaxAllowedVariables(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setName(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setPlayerId(int arg0, com.smartfoxserver.v2.entities.Room arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setPrivilegeId(short arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setProperty(Object arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setReconnectionSeconds(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setVariable(UserVariable arg0) throws SFSVariableException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setVariables(List<UserVariable> arg0) throws SFSVariableException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setZone(Zone arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void subscribeGroup(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ISFSArray toSFSArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ISFSArray toSFSArray(com.smartfoxserver.v2.entities.Room arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void unsubscribeGroup(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateLastRequestTime() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

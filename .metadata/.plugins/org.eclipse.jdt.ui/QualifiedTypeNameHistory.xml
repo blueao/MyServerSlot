@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.security.cert.Extension"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.extensions.SFSExtension"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.mmo.CreateMMORoomSettings"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.api.CreateRoomSettings"/>
+<fullyQualifiedTypeName name="sfs2x.client.requests.CreateRoomRequest"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.entities.data.ISFSObject"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.entities.User"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.api.CreateRoomSettings.RoomExtensionSettings"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.entities.SFSRoomRemoveMode"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.entities.data.SFSObject"/>
+<fullyQualifiedTypeName name="sfs2x.client.entities.Room"/>
+<fullyQualifiedTypeName name="sfs2x.client.SmartFox"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.controllers.system.CreateRoom"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.api.SFSMMOApi"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.SmartFoxServer"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.mmo.MMOItemVariable"/>
+<fullyQualifiedTypeName name="sfs2x.client.entities.data.Vec3D"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.mmo.MMOItem"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.mmo.IMMOItemVariable"/>
+<fullyQualifiedTypeName name="java.lang.reflect.InvocationTargetException"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="luuhieuServer.DragonArmor"/>
+<fullyQualifiedTypeName name="java.sql.Array"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="luuhieuServer.DataModel"/>
+<fullyQualifiedTypeName name="luuhieuServer.WeaponsModel"/>
+<fullyQualifiedTypeName name="luuhieuServer.ArmorsModel"/>
+<fullyQualifiedTypeName name="javax.lang.model.element.PackageElement"/>
+<fullyQualifiedTypeName name="luuhieuServer.IPackageObject"/>
+<fullyQualifiedTypeName name="luuhieuServer.DragonSword"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.core.SFSEventType"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.exceptions.SFSException"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.extensions.BaseServerEventHandler"/>
+<fullyQualifiedTypeName name="com.smartfoxserver.v2.core.SFSEventParam"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="luuhieuServer.MainServer"/>
+</qualifiedTypeNameHistroy>

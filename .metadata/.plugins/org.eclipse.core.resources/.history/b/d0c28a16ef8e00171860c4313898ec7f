@@ -1,0 +1,82 @@
+package Extension;
+
+import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
+
+import com.smartfoxserver.bitswarm.sessions.ISession;
+import com.smartfoxserver.v2.SmartFoxServer;
+import com.smartfoxserver.v2.api.CreateRoomSettings;
+import com.smartfoxserver.v2.api.CreateRoomSettings.RoomExtensionSettings;
+import com.smartfoxserver.v2.api.SFSMMOApi;
+import com.smartfoxserver.v2.buddylist.BuddyProperties;
+import com.smartfoxserver.v2.controllers.system.CreateRoom;
+import com.smartfoxserver.v2.core.ISFSEvent;
+import com.smartfoxserver.v2.core.SFSEventParam;
+import com.smartfoxserver.v2.core.SFSEventType;
+import com.smartfoxserver.v2.entities.SFSRoomRemoveMode;
+import com.smartfoxserver.v2.entities.User;
+import com.smartfoxserver.v2.entities.Zone;
+import com.smartfoxserver.v2.entities.data.ISFSArray;
+import com.smartfoxserver.v2.entities.data.ISFSObject;
+import com.smartfoxserver.v2.entities.data.SFSObject;
+import com.smartfoxserver.v2.entities.variables.UserVariable;
+import com.smartfoxserver.v2.exceptions.SFSCreateRoomException;
+import com.smartfoxserver.v2.exceptions.SFSException;
+import com.smartfoxserver.v2.exceptions.SFSVariableException;
+import com.smartfoxserver.v2.extensions.BaseServerEventHandler;
+import com.smartfoxserver.v2.extensions.SFSExtension;
+import com.smartfoxserver.v2.mmo.BaseMMOItem;
+import com.smartfoxserver.v2.mmo.CreateMMORoomSettings;
+import com.smartfoxserver.v2.mmo.IMMOItemVariable;
+import com.smartfoxserver.v2.mmo.MMOItem;
+import com.smartfoxserver.v2.mmo.MMOItemVariable;
+import com.smartfoxserver.v2.mmo.MMORoom;
+import com.smartfoxserver.v2.util.Country;
+import com.smartfoxserver.v2.util.IDisconnectionReason;
+import com.smartfoxserver.v2.util.stats.ZoneTrafficMeter;
+
+import luuhieuServer.DataModel;
+import luuhieuServer.DragonArmor;
+import luuhieuServer.DragonSword;
+import sfs2x.client.SmartFox;
+import sfs2x.client.entities.Room;
+import sfs2x.client.entities.data.Vec3D;
+import sfs2x.client.requests.CreateRoomRequest;
+import sfs2x.client.requests.RoomExtension;
+import sfs2x.client.requests.RoomSettings;
+
+public class ScrollerExtension  extends SFSExtension {
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+
+		
+	}
+	public void getAllUsersInZone()
+	{
+		DragonSword dra = new DragonSword();
+		dra.init();
+		DragonArmor draA = new DragonArmor();
+		draA.init();
+		DataModel dataM = new DataModel<>(dra,draA);
+	   // Grab current extension zone
+	   Zone zone = SmartFoxServer.getInstance().getZoneManager().getZoneByName("GameExtension");
+	   // Get the java list of socket channels
+	   List<User> listOfChannels =  (List<User>) zone.getUserList();
+	
+	   for (int i = 0; i < listOfChannels.size(); i++)
+	   {
+		   listOfChannels.
+		   SmartFoxServer.getInstance().getAPIManager().getSFSApi().sendExtensionResponse(listOfChannels[i], dataM, arg2, "Sunna", true);
+	   }
+	   
+
+	}
+}
